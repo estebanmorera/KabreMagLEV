@@ -1,0 +1,31 @@
+# Python / notebooks
+__pycache__/
+.ipynb_checkpoints/
+.pytest_cache/
+.venv/
+venv/
+
+# Elmer / Gmsh generated artifacts
+simulations/elmer/generated/**
+!simulations/elmer/generated/.gitkeep
+mesh/
+results/
+*.msh
+*.vtu
+*.pvtu
+*.ep
+*.dat
+*.log
+
+# Data products. Keep README files as structure markers.
+data/raw/**
+!data/raw/README.md
+data/processed/**
+!data/processed/README.md
+data/runs/**
+!data/runs/README.md
+
+# Local/editor noise
+.DS_Store
+Thumbs.db
+*.tmp
