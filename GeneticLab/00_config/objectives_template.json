@@ -1,0 +1,17 @@
+{
+  "objective_names": [
+    "objective_primary",
+    "objective_abs_force0",
+    "objective_nonlin",
+    "objective_volume_m3"
+  ],
+  "constraint_names": [
+    "constraint_eval_failed",
+    "constraint_geometry"
+  ],
+  "notes": [
+    "Todos los objetivos se minimizan.",
+    "objective_primary usa -stiffness si hay columna de rigidez; si no, usa -score_total como fallback.",
+    "Edita los aliases en 30_postproceso/build_objectives.py cuando veas los nombres reales de population_evaluation.csv."
+  ]
+}

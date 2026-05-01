@@ -25,6 +25,10 @@ data/processed/**
 data/runs/**
 !data/runs/README.md
 
+# GeneticLab experiments and optimizer state
+GeneticLab/experiments/**
+GeneticLab/**/*.pkl
+
 # Local/editor noise
 .DS_Store
 Thumbs.db

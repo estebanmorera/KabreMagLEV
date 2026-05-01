@@ -1,0 +1,27 @@
+{
+  "description": "Espacio inicial para HMB/PMB. Longitudes de variables activas en mm; columnas finales para Elmer en metros.",
+  "variables": [
+    {"name": "r1_mm", "lower": 4.0, "upper": 8.5},
+    {"name": "t_inner_mm", "lower": 2.5, "upper": 7.5},
+    {"name": "gap_radial_mm", "lower": 0.6, "upper": 4.0},
+    {"name": "t_outer_mm", "lower": 6.0, "upper": 16.0},
+    {"name": "h0_mm", "lower": 2.0, "upper": 7.0},
+    {"name": "h1_mm", "lower": 2.0, "upper": 8.0},
+    {"name": "gap_z_mm", "lower": 0.4, "upper": 3.0},
+    {"name": "gap_pc_mm", "lower": 2.0, "upper": 8.0},
+    {"name": "coil_t_mm", "lower": 3.0, "upper": 10.0},
+    {"name": "hb_mm", "lower": 6.0, "upper": 20.0}
+  ],
+  "fixed": {
+    "Ni": 700,
+    "I_eval_A": 3.0
+  },
+  "limits": {
+    "max_r4_mm": 32.0,
+    "max_rb2_mm": 34.0,
+    "max_total_height_mm": 42.0,
+    "min_gap_radial_mm": 0.5,
+    "min_gap_z_mm": 0.3,
+    "min_gap_pc_mm": 1.5
+  }
+}
