@@ -1,0 +1,168 @@
+
+Starting program Elmergrid, compiled on Nov 28 2025
+Elmergrid reading in-line arguments
+The mesh will be partitioned with Metis to 20 partitions.
+Output will be saved to file mesh.
+
+Elmergrid loading data:
+-----------------------
+Loading mesh in ElmerSolver format from directory mesh.
+Loading header from mesh.header
+Maximum elementtype index is: 504
+Maximum number of nodes in element is: 4
+Allocating for 331873 knots and 1976937 elements.
+Loading 331873 Elmer nodes from mesh.nodes
+Loading 1976937 bulk elements from mesh.elements
+Loading 126035 boundary elements from mesh.boundary
+Loading names for mesh parts from file mesh.names
+Reading names for mesh bodies
+Elmer mesh loaded successfully
+
+Elmergrid creating and manipulating meshes:
+-------------------------------------------
+
+Elmergrid partitioning meshes:
+------------------------------
+Making a Metis partitioning for 331873 nodes in 3-dimensions.
+Setting default Metis options!
+Setting user defined Metis options!
+Creating a nodal graph of the finite element mesh
+There are at maximum 26 connections in nodal graph.
+There are at all in all 4631310 connections in nodal graph.
+There are 4631310 connections altogether in the graph.
+Starting graph partitioning METIS_PartGraphKway.
+ Runtime parameters:
+   Objective type: METIS_OBJTYPE_CUT
+   Coarsening type: METIS_CTYPE_SHEM
+   Initial partitioning type: METIS_IPTYPE_METISRB
+   Refinement type: METIS_RTYPE_GREEDY
+   Perform a 2-hop matching: No
+   Number of balancing constraints: 1
+   Number of refinement iterations: 10
+   Random number seed: -1
+   Number of partitions: 20
+   Number of cuts: 1
+   User-supplied ufactor: 30
+   Minimize connectivity: No
+   Create contigous partitions: No
+   Target partition weights: 
+        0=[5.00e-02]   1=[5.00e-02]   2=[5.00e-02]   3=[5.00e-02]   4=[5.00e-02]
+        5=[5.00e-02]   6=[5.00e-02]   7=[5.00e-02]   8=[5.00e-02]   9=[5.00e-02]
+       10=[5.00e-02]  11=[5.00e-02]  12=[5.00e-02]  13=[5.00e-02]  14=[5.00e-02]
+       15=[5.00e-02]  16=[5.00e-02]  17=[5.00e-02]  18=[5.00e-02]  19=[5.00e-02]
+   Allowed maximum load imbalance: 1.030 
+
+
+ gk_mcore statistics
+           coresize:      5310824         nmops:         2048  cmop:      0
+        num_callocs:           39   num_hallocs:            0
+       size_callocs:      8296256  size_hallocs:            0
+        cur_callocs:            0   cur_hallocs:            0
+        max_callocs:      2758560   max_hallocs:            0
+ nbrpool statistics
+        nbrpoolsize:            0   nbrpoolcpos:            0
+    nbrpoolreallocs:            0
+
+
+Timing Information -------------------------------------------------
+ Multilevel: 		   0.321
+     Coarsening: 		   0.225
+            Matching: 			   0.069
+            Contract: 			   0.153
+     Initial Partition: 	   0.044
+     Uncoarsening: 		   0.051
+          Refinement: 			   0.023
+          Projection: 			   0.028
+     Splitting: 		   0.000
+********************************************************************
+
+ gk_mcore statistics
+           coresize:      5310824         nmops:         2048  cmop:      0
+        num_callocs:           71   num_hallocs:            0
+       size_callocs:     10943792  size_hallocs:            0
+        cur_callocs:            0   cur_hallocs:            0
+        max_callocs:      5310304   max_hallocs:            0
+ nbrpool statistics
+        nbrpoolsize:      1316251   nbrpoolcpos:      1098071
+    nbrpoolreallocs:            6
+
+Finished Metis graph partitioning call.
+Set the element partitions by the dominating nodal partition
+There are from 94587 to 102915 elements in the 20 partitions.
+Checking connection integrity
+Successfully made a Metis partition using the nodal graph.
+Optimizing the partitioning at boundaries.
+Round 1: 2279 bulk elements with BCs removed from interface.
+Round 2: 81 bulk elements with BCs removed from interface.
+Round 3: 76 bulk elements with BCs removed from interface.
+Round 4: 76 bulk elements with BCs removed from interface.
+Round 5: 38 bulk elements with BCs removed from interface.
+Ownership of 2284 parents was changed at BCs
+Optimizing for 20 partitions
+Creating a table showing all parenting partitions of nodes.
+Nodes belong to 4 partitions in maximum
+There are 46821 shared nodes which is 14.11 % of all nodes.
+The initial owner was not any of the elements for 0 nodes
+Checking partitioning before optimization
+Checking for partitioning
+Information on partition bandwidth
+Average 98846 elements with range 8383 in partition
+Average 16593 nodes with range 980 in partition
+Average 2506 shared nodes with range 1251 in partition
+Average number of elements in partition 1.659e+04
+Maximum deviation in ownership 980
+Average deviation in ownership 3.357e+02
+Average relative deviation 2.02 %
+Checking for problematic sharings
+Optimizing sharing for 20 partitions
+Changed the ownership of 1 nodes
+There shouldn't be any problematic sharings, knock, knock...
+The partitioning was optimized: 1
+Checking partitioning after optimization
+Checking for partitioning
+Information on partition bandwidth
+Average 98846 elements with range 8383 in partition
+Average 16593 nodes with range 979 in partition
+Average 2506 shared nodes with range 1251 in partition
+Partitioning routines finished!
+Bounding box of all nodes in mesh:
+X:[-0.045,0.045] Y:[-0.045,0.0449999] Z:[-0.026,0.026]
+Calculate Mesh Pieces in mesh:
+There is a single piece in the mesh, so the mesh is conforming.
+
+Elmergrid saving data with method 2:
+-------------------------------------
+Saving Elmer mesh in partitioned format
+Number of boundary nodes at the boundary: 61158
+Number of additional interface nodes: 0
+Created subdirectory: partitioning.20
+Saving mesh in parallel ElmerSolver format to directory mesh/partitioning.20.
+Nodes belong to 4 partitions in maximum
+Saving mesh for 20 partitions
+   part  elements   nodes      shared   bc elems
+   1     102484     17052      2633     4564    
+   2     100203     16998      2211     4092    
+   3     94564      16143      2378     6482    
+   4     99131      16492      2582     8172    
+   5     96803      16146      2380     10350   
+   6     97716      16643      1971     3939    
+   7     102518     17033      2955     3993    
+   8     96413      16379      2457     5933    
+   9     99667      16660      2582     9157    
+   10    96758      16113      2841     7673    
+   11    101154     17042      2126     3851    
+   12    99557      16674      2592     4789    
+   13    97063      16548      2461     7797    
+   14    102947     17092      3156     6514    
+   15    96749      16127      2228     9978    
+   16    99911      16678      2579     3830    
+   17    99548      16782      1988     3538    
+   18    94991      16204      2331     6730    
+   19    98347      16298      3222     3910    
+   20    100413     16769      2457     10743   
+----------------------------------------------------------------------------------------------
+   ave   98846.9    16593.7    2506.5   6301.8   0.0     
+Writing of partitioned mesh finished
+
+Thank you for using Elmergrid!
+Send bug reports and feature wishes to elmeradm@csc.fi

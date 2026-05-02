@@ -1,0 +1,251 @@
+Info    : Running 'gmsh StepsHTX.geo -3 -format msh2 -save_all -o case.msh' [Gmsh 4.15.1-git, 1 node, max. 1 thread]
+Info    : Started on Fri May  1 19:46:55 2026
+Info    : Reading 'StepsHTX.geo'...
+Info    : Meshing 1D...
+Info    : [  0%] Meshing curve 4 (Circle)
+Info    : [ 10%] Meshing curve 5 (Line)
+Info    : [ 10%] Meshing curve 6 (Circle)
+Info    : [ 10%] Meshing curve 7 (Circle)
+Info    : [ 20%] Meshing curve 8 (Line)
+Info    : [ 20%] Meshing curve 9 (Circle)
+Info    : [ 20%] Meshing curve 13 (Circle)
+Info    : [ 30%] Meshing curve 14 (Line)
+Info    : [ 30%] Meshing curve 15 (Circle)
+Info    : [ 30%] Meshing curve 16 (Circle)
+Info    : [ 40%] Meshing curve 17 (Line)
+Info    : [ 40%] Meshing curve 18 (Circle)
+Info    : [ 40%] Meshing curve 22 (Circle)
+Info    : [ 40%] Meshing curve 23 (Line)
+Info    : [ 50%] Meshing curve 24 (Circle)
+Info    : [ 50%] Meshing curve 25 (Circle)
+Info    : [ 50%] Meshing curve 26 (Line)
+Info    : [ 60%] Meshing curve 27 (Circle)
+Info    : [ 60%] Meshing curve 31 (Circle)
+Info    : [ 60%] Meshing curve 32 (Line)
+Info    : [ 70%] Meshing curve 33 (Circle)
+Info    : [ 70%] Meshing curve 34 (Circle)
+Info    : [ 70%] Meshing curve 35 (Line)
+Info    : [ 70%] Meshing curve 36 (Circle)
+Info    : [ 80%] Meshing curve 40 (Circle)
+Info    : [ 80%] Meshing curve 41 (Line)
+Info    : [ 80%] Meshing curve 42 (Circle)
+Info    : [ 90%] Meshing curve 43 (Circle)
+Info    : [ 90%] Meshing curve 44 (Line)
+Info    : [ 90%] Meshing curve 45 (Circle)
+Info    : [100%] Meshing curve 46 (Circle)
+Info    : [100%] Meshing curve 47 (Line)
+Info    : [100%] Meshing curve 48 (Circle)
+Info    : Done meshing 1D (Wall 0.430426s, CPU 0.012047s)
+Info    : Meshing 2D...
+Info    : [  0%] Meshing surface 4 (Cylinder, Frontal-Delaunay)
+Info    : [ 10%] Meshing surface 5 (Cylinder, Frontal-Delaunay)
+Info    : [ 10%] Meshing surface 6 (Plane, Frontal-Delaunay)
+Info    : [ 20%] Meshing surface 7 (Plane, Frontal-Delaunay)
+Info    : [ 20%] Meshing surface 11 (Cylinder, Frontal-Delaunay)
+Info    : [ 30%] Meshing surface 12 (Cylinder, Frontal-Delaunay)
+Info    : [ 30%] Meshing surface 13 (Plane, Frontal-Delaunay)
+Info    : [ 40%] Meshing surface 14 (Plane, Frontal-Delaunay)
+Info    : [ 40%] Meshing surface 18 (Cylinder, Frontal-Delaunay)
+Info    : [ 40%] Meshing surface 19 (Cylinder, Frontal-Delaunay)
+Info    : [ 50%] Meshing surface 20 (Plane, Frontal-Delaunay)
+Info    : [ 50%] Meshing surface 21 (Plane, Frontal-Delaunay)
+Info    : [ 60%] Meshing surface 25 (Cylinder, Frontal-Delaunay)
+Info    : [ 60%] Meshing surface 26 (Cylinder, Frontal-Delaunay)
+Info    : [ 70%] Meshing surface 27 (Plane, Frontal-Delaunay)
+Info    : [ 70%] Meshing surface 28 (Plane, Frontal-Delaunay)
+Info    : [ 70%] Meshing surface 32 (Cylinder, Frontal-Delaunay)
+Info    : [ 80%] Meshing surface 33 (Cylinder, Frontal-Delaunay)
+Info    : [ 80%] Meshing surface 34 (Plane, Frontal-Delaunay)
+Info    : [ 90%] Meshing surface 35 (Plane, Frontal-Delaunay)
+Info    : [ 90%] Meshing surface 36 (Cylinder, Frontal-Delaunay)
+Info    : [100%] Meshing surface 37 (Plane, Frontal-Delaunay)
+Info    : [100%] Meshing surface 38 (Plane, Frontal-Delaunay)
+Info    : Done meshing 2D (Wall 15.7363s, CPU 14.3155s)
+Info    : Meshing 3D...
+Info    : 3D Meshing 6 volumes with 1 connected component
+Info    : Input mesh hash 114659413bb62655
+Info    : Creating an empty mesh with 113009 vertices
+Info    : Initialization of tet. mesh
+Info    : Delaunay of     113005 points on   1 threads - mesh.nvert: 4         
+Info    : Recovering 12 missing facet(s)
+Info    : Recover Delaunay
+Info    : All volumes of the BRep were found and colorized accordingly
+Info    : Computing interpolated mesh sizes...
+Info    : Done computing interpolated mesh sizes
+Info    : Delaunay of     593721 points on   1 threads - mesh.nvert: 113009    
+Info    :           -     497198 points filtered
+Info    :           =      96523 points added
+Info    : Computing interpolated mesh sizes...
+Info    : Done computing interpolated mesh sizes
+Info    : Delaunay of     658959 points on   1 threads - mesh.nvert: 209532    
+Info    :           -     471168 points filtered
+Info    :           =     187791 points added
+Info    : Computing interpolated mesh sizes...
+Info    : Done computing interpolated mesh sizes
+Info    : Delaunay of     675308 points on   1 threads - mesh.nvert: 397323    
+Info    :           -     445492 points filtered
+Info    :           =     229816 points added
+Info    : Computing interpolated mesh sizes...
+Info    : Done computing interpolated mesh sizes
+Info    : Delaunay of     450979 points on   1 threads - mesh.nvert: 627139    
+Info    :           -     290393 points filtered
+Info    :           =     160586 points added
+Info    : Computing interpolated mesh sizes...
+Info    : Done computing interpolated mesh sizes
+Info    : Delaunay of     137606 points on   1 threads - mesh.nvert: 787725    
+Info    :           -      79612 points filtered
+Info    :           =      57994 points added
+Info    : Computing interpolated mesh sizes...
+Info    : Done computing interpolated mesh sizes
+Info    : Delaunay of      16558 points on   1 threads - mesh.nvert: 845719    
+Info    :           -       6271 points filtered
+Info    :           =      10287 points added
+Info    : Computing interpolated mesh sizes...
+Info    : Done computing interpolated mesh sizes
+Info    : Delaunay of       1140 points on   1 threads - mesh.nvert: 856006    
+Info    :           -        266 points filtered
+Info    :           =        874 points added
+Info    : Computing interpolated mesh sizes...
+Info    : Done computing interpolated mesh sizes
+Info    : Delaunay of         64 points on   1 threads - mesh.nvert: 856880    
+Info    :           -         17 points filtered
+Info    :           =         47 points added
+Info    : Computing interpolated mesh sizes...
+Info    : Done computing interpolated mesh sizes
+Info    : Delaunay of          3 points on   1 threads - mesh.nvert: 856927    
+Info    :           -          1 points filtered
+Info    :           =          2 points added
+Info    : Computing interpolated mesh sizes...
+Info    : Done computing interpolated mesh sizes
+Info    : Improving     512705 tet. on   1 thrd (S & ER)
+Info    : Improving      93967 tet. on   1 thrd (S & ER)
+Info    : Improving      59638 tet. on   1 thrd (S & ER)
+Info    : Improving      49468 tet. on   1 thrd (S & ER)
+Info    : Improving      46307 tet. on   1 thrd (S & ER)
+Info    : Improving      45361 tet. on   1 thrd (S & ER)
+Info    : Improving      45105 tet. on   1 thrd (S & ER)
+Info    : Improving      45042 tet. on   1 thrd (GSC)
+Info    : Improving      10531 tet. on   1 thrd (S & ER)
+Info    : Improving       7613 tet. on   1 thrd (S & ER)
+Info    : Improving       6984 tet. on   1 thrd (S & ER)
+Info    : Improving       6851 tet. on   1 thrd (S & ER)
+Info    : Improving       6828 tet. on   1 thrd (S & ER)
+Info    : Improving       6819 tet. on   1 thrd (GSC)
+Info    : Improving       4289 tet. on   1 thrd (S & ER)
+Info    : Improving       3888 tet. on   1 thrd (S & ER)
+Info    : Improving       3827 tet. on   1 thrd (S & ER)
+Info    : Improving       3816 tet. on   1 thrd (S & ER)
+Info    : Improving       3813 tet. on   1 thrd (GSC)
+Info    : Improving       3570 tet. on   1 thrd (S & ER)
+Info    : Improving       3527 tet. on   1 thrd (S & ER)
+Info    : Improving       3520 tet. on   1 thrd (S & ER)
+Info    : Improving       3519 tet. on   1 thrd (GSC)
+Info    : Improving       3506 tet. on   1 thrd (S & ER)
+Info    : Improving       3502 tet. on   1 thrd (S & ER)
+Info    : Improving       3501 tet. on   1 thrd (GSC)
+Info    :  	Final tet. mesh contains 5182057 tetrahedra
+Info    :  	Final tet. mesh contains 856929 vertices
+Info    : tEmptyMesh  	 = 	    0.487
+Info    : tVerifyBnd  	 = 	    0.120
+Info    : tBndRecovery	 = 	    1.133
+Info    : tConvertMesh	 = 	    0.142
+Info    : tRefine     	 = 	    5.810
+Info    : tOptimize   	 = 	   18.337
+Info    : Done meshing 3D (Wall 26.8425s, CPU 26.4017s)
+Info    : 856929 nodes 5365817 elements
+Info    : Done reading 'StepsHTX.geo'
+Info    : Meshing 3D...
+Info    : 3D Meshing 6 volumes with 1 connected component
+Info    : Input mesh hash 15563e9dc133b718
+Info    : Creating an empty mesh with 113009 vertices
+Info    : Initialization of tet. mesh
+Info    : Delaunay of     113005 points on   1 threads - mesh.nvert: 4         
+Info    : Recovering 12 missing facet(s)
+Info    : Recover Delaunay
+Info    : All volumes of the BRep were found and colorized accordingly
+Info    : Computing interpolated mesh sizes...
+Info    : Done computing interpolated mesh sizes
+Info    : Delaunay of     593721 points on   1 threads - mesh.nvert: 113009    
+Info    :           -     497200 points filtered
+Info    :           =      96521 points added
+Info    : Computing interpolated mesh sizes...
+Info    : Done computing interpolated mesh sizes
+Info    : Delaunay of     658968 points on   1 threads - mesh.nvert: 209530    
+Info    :           -     471177 points filtered
+Info    :           =     187791 points added
+Info    : Computing interpolated mesh sizes...
+Info    : Done computing interpolated mesh sizes
+Info    : Delaunay of     675331 points on   1 threads - mesh.nvert: 397321    
+Info    :           -     445511 points filtered
+Info    :           =     229820 points added
+Info    : Computing interpolated mesh sizes...
+Info    : Done computing interpolated mesh sizes
+Info    : Delaunay of     451004 points on   1 threads - mesh.nvert: 627141    
+Info    :           -     290412 points filtered
+Info    :           =     160592 points added
+Info    : Computing interpolated mesh sizes...
+Info    : Done computing interpolated mesh sizes
+Info    : Delaunay of     137593 points on   1 threads - mesh.nvert: 787733    
+Info    :           -      79600 points filtered
+Info    :           =      57993 points added
+Info    : Computing interpolated mesh sizes...
+Info    : Done computing interpolated mesh sizes
+Info    : Delaunay of      16549 points on   1 threads - mesh.nvert: 845726    
+Info    :           -       6267 points filtered
+Info    :           =      10282 points added
+Info    : Computing interpolated mesh sizes...
+Info    : Done computing interpolated mesh sizes
+Info    : Delaunay of       1140 points on   1 threads - mesh.nvert: 856008    
+Info    :           -        266 points filtered
+Info    :           =        874 points added
+Info    : Computing interpolated mesh sizes...
+Info    : Done computing interpolated mesh sizes
+Info    : Delaunay of         64 points on   1 threads - mesh.nvert: 856882    
+Info    :           -         17 points filtered
+Info    :           =         47 points added
+Info    : Computing interpolated mesh sizes...
+Info    : Done computing interpolated mesh sizes
+Info    : Delaunay of          3 points on   1 threads - mesh.nvert: 856929    
+Info    :           -          1 points filtered
+Info    :           =          2 points added
+Info    : Computing interpolated mesh sizes...
+Info    : Done computing interpolated mesh sizes
+Info    : Improving     512724 tet. on   1 thrd (S & ER)
+Info    : Improving      93975 tet. on   1 thrd (S & ER)
+Info    : Improving      59629 tet. on   1 thrd (S & ER)
+Info    : Improving      49434 tet. on   1 thrd (S & ER)
+Info    : Improving      46252 tet. on   1 thrd (S & ER)
+Info    : Improving      45307 tet. on   1 thrd (S & ER)
+Info    : Improving      45041 tet. on   1 thrd (S & ER)
+Info    : Improving      44963 tet. on   1 thrd (GSC)
+Info    : Improving      10471 tet. on   1 thrd (S & ER)
+Info    : Improving       7560 tet. on   1 thrd (S & ER)
+Info    : Improving       6934 tet. on   1 thrd (S & ER)
+Info    : Improving       6808 tet. on   1 thrd (S & ER)
+Info    : Improving       6766 tet. on   1 thrd (S & ER)
+Info    : Improving       6763 tet. on   1 thrd (GSC)
+Info    : Improving       4274 tet. on   1 thrd (S & ER)
+Info    : Improving       3875 tet. on   1 thrd (S & ER)
+Info    : Improving       3816 tet. on   1 thrd (S & ER)
+Info    : Improving       3809 tet. on   1 thrd (S & ER)
+Info    : Improving       3805 tet. on   1 thrd (GSC)
+Info    : Improving       3555 tet. on   1 thrd (S & ER)
+Info    : Improving       3509 tet. on   1 thrd (S & ER)
+Info    : Improving       3506 tet. on   1 thrd (S & ER)
+Info    : Improving       3506 tet. on   1 thrd (GSC)
+Info    : Improving       3484 tet. on   1 thrd (S & ER)
+Info    : Improving       3479 tet. on   1 thrd (S & ER)
+Info    : Improving       3479 tet. on   1 thrd (GSC)
+Info    :  	Final tet. mesh contains 5182137 tetrahedra
+Info    :  	Final tet. mesh contains 856931 vertices
+Info    : tEmptyMesh  	 = 	    0.481
+Info    : tVerifyBnd  	 = 	    0.114
+Info    : tBndRecovery	 = 	    1.050
+Info    : tConvertMesh	 = 	    0.141
+Info    : tRefine     	 = 	    5.725
+Info    : tOptimize   	 = 	   18.351
+Info    : Done meshing 3D (Wall 26.9214s, CPU 26.6039s)
+Info    : 856931 nodes 5365897 elements
+Info    : Writing 'case.msh'...
+Info    : Done writing 'case.msh'
+Info    : Stopped on Fri May  1 19:48:12 2026 (From start: Wall 77.1982s, CPU 73.522s)

@@ -1,0 +1,644 @@
+ELMER SOLVER (v 9.0) STARTED AT: 2026/05/01 19:34:52
+ELMER SOLVER (v 9.0) STARTED AT: 2026/05/01 19:34:52
+ELMER SOLVER (v 9.0) STARTED AT: 2026/05/01 19:34:52
+ELMER SOLVER (v 9.0) STARTED AT: 2026/05/01 19:34:52
+ELMER SOLVER (v 9.0) STARTED AT: 2026/05/01 19:34:52
+ELMER SOLVER (v 9.0) STARTED AT: 2026/05/01 19:34:52
+ELMER SOLVER (v 9.0) STARTED AT: 2026/05/01 19:34:52
+ELMER SOLVER (v 9.0) STARTED AT: 2026/05/01 19:34:52
+ELMER SOLVER (v 9.0) STARTED AT: 2026/05/01 19:34:52
+ELMER SOLVER (v 9.0) STARTED AT: 2026/05/01 19:34:52
+ELMER SOLVER (v 9.0) STARTED AT: 2026/05/01 19:34:52
+ELMER SOLVER (v 9.0) STARTED AT: 2026/05/01 19:34:52
+ELMER SOLVER (v 9.0) STARTED AT: 2026/05/01 19:34:52
+ELMER SOLVER (v 9.0) STARTED AT: 2026/05/01 19:34:52
+ELMER SOLVER (v 9.0) STARTED AT: 2026/05/01 19:34:52
+ELMER SOLVER (v 9.0) STARTED AT: 2026/05/01 19:34:52
+ELMER SOLVER (v 9.0) STARTED AT: 2026/05/01 19:34:52
+ELMER SOLVER (v 9.0) STARTED AT: 2026/05/01 19:34:52
+ELMER SOLVER (v 9.0) STARTED AT: 2026/05/01 19:34:52
+ELMER SOLVER (v 9.0) STARTED AT: 2026/05/01 19:34:52
+ParCommInit: ParCommInit: Initialize #PEs: 20
+ParCommInit: Initialize #PEs: 20
+ParCommInit: Initialize #PEs: 20
+Initialize #PEs: 20
+MAIN: 
+MAIN: =============================================================
+MAIN: ElmerSolver finite element software, Welcome!
+MAIN: This program is free software licensed under (L)GPL
+MAIN: Copyright 1st April 1995 - , CSC - IT Center for Science Ltd.
+MAIN: Webpage http://www.csc.fi/elmer, Email elmeradm@csc.fi
+MAIN: Version: 9.0 (Rev: 094910a, Compiled: 2025-11-28)
+MAIN:  Running in parallel using 20 tasks.
+MAIN:  Running with just one thread per task.
+MAIN: =============================================================
+OpenIncludeFile: Trying to include file: "HMB_circuit.definition"
+MAIN: 
+MAIN: 
+MAIN: -------------------------------------
+MAIN: Reading Model: P1low.sif
+LoadInputFile: Scanning input file: P1low.sif
+LoadInputFile: Scanning only size info
+LoadInputFile: First time visiting
+LoadInputFile: Reading base load of sif file
+OpenIncludeFile: Trying to include file: "HMB_circuit.definition"
+LoadInputFile: Loading input file: P1low.sif
+LoadInputFile: Reading base load of sif file
+OpenIncludeFile: Trying to include file: "HMB_circuit.definition"
+CheckKeyword:  Unlisted keyword: [coil use w vector] in section: [component 1]
+CheckKeyword:  Unlisted keyword: [w vector variable name] in section: [component 1]
+CheckKeyword:  Unlisted keyword: [electrode area] in section: [component 1]
+CheckKeyword:  Unlisted keyword: [i1_source] in section: [body force 1]
+CheckKeyword:  Unlisted keyword: [save coil set] in section: [solver 2]
+CheckKeyword:  Unlisted keyword: [save coil index] in section: [solver 2]
+CheckKeyword:  Unlisted keyword: [single coil cut] in section: [solver 2]
+LoadInputFile: Number of BCs: 1
+LoadInputFile: Number of Body Forces: 3
+LoadInputFile: Number of Initial Conditions: 0
+LoadInputFile: Number of Materials: 4
+LoadInputFile: Number of Equations: 2
+LoadInputFile: Number of Solvers: 5
+LoadInputFile: Number of Bodies: 6
+ListTagKeywords: Setting weight for keywords!
+ListTagKeywords: No parameters width suffix: normalize by area
+ListTagKeywords: Setting weight for keywords!
+ListTagKeywords: No parameters width suffix: normalize by volume
+Loading user function library: [CircuitsAndDynamics]...[CircuitsAndDynamics_Init0]
+Loading user function library: [CircuitsAndDynamics]...[CircuitsAndDynamics_Init0]
+Loading user function library: [CoilSolver]...[CoilSolver_Init0]
+Loading user function library: [CoilSolver]...[CoilSolver_Init0]
+Loading user function library: [MagnetoDynamics]...[WhitneyAVSolver_Init0]
+WhitneyAVSolver_Init0: Setting element type to: "n:1 e:1 -brick b:3 -quad_face b:2"
+Loading user function library: [MagnetoDynamics]...[MagnetoDynamicsCalcFields_Init0]
+ElmerAsciiMesh: Base mesh name: ./mesh
+PermuteNodeNumbering: Performing node mapping
+MapBodiesAndBCs: Minimum initial body index: 20
+MapBodiesAndBCs: Maximum initial body index: 30
+MapBodiesAndBCs: Minimum initial boundary index: 32
+MapBodiesAndBCs: Maximum initial boundary index: 66
+SParFaceNumbering: Elapsed REAL time:     0.1140 (s)
+SParEdgeNumbering: Elapsed REAL time:     0.3238 (s)
+ParallelNonNodal: Elapsed REAL time:     0.4409 (s)
+LoadMesh: Elapsed REAL time:     0.6308 (s)
+MeshStabParams: Computing stabilization parameters
+MeshStabParams: Elapsed REAL time:     0.0053 (s)
+CompleteModelKeywords: Created "Master Bodies" for coil of size 1
+MAIN: -------------------------------------
+Loading user function library: [CircuitsAndDynamics]...[CircuitsAndDynamics_Init]
+Loading user function library: [CircuitsAndDynamics]...[CircuitsAndDynamics_bulk]
+Loading user function library: [CircuitsAndDynamics]...[CircuitsAndDynamics_bulk]
+Loading user function library: [CircuitsAndDynamics]...[CircuitsAndDynamics]
+Loading user function library: [CoilSolver]...[CoilSolver_Init]
+CoilSolver_int: Computing elemental field as only that can be fixed!
+Loading user function library: [CoilSolver]...[CoilSolver_bulk]
+Loading user function library: [CoilSolver]...[CoilSolver_bulk]
+Loading user function library: [CoilSolver]...[CoilSolver]
+OptimizeBandwidth: ---------------------------------------------------------
+OptimizeBandwidth: Computing matrix structure for: coilsolver
+OptimizeBandwidth: Initial bandwidth for coilsolver: 1549
+OptimizeBandwidth: Optimized bandwidth for coilsolver: 151
+OptimizeBandwidth: ---------------------------------------------------------
+Loading user function library: [MagnetoDynamics]...[WhitneyAVSolver_Init]
+Loading user function library: [MagnetoDynamics]...[WhitneyAVSolver_bulk]
+Loading user function library: [MagnetoDynamics]...[WhitneyAVSolver_bulk]
+Loading user function library: [MagnetoDynamics]...[WhitneyAVSolver]
+OptimizeBandwidth: ---------------------------------------------------------
+OptimizeBandwidth: Computing matrix structure for: mgdynamics
+OptimizeBandwidth: Initial bandwidth for mgdynamics: 33518
+OptimizeBandwidth: Optimized bandwidth for mgdynamics: 4169
+OptimizeBandwidth: ---------------------------------------------------------
+WARNING:: AddEquationBasics: Solver 5 may require "Procedure" to operate!
+Loading user function library: [MagnetoDynamics]...[MagnetoDynamicsCalcFields_Init]
+Loading user function library: [MagnetoDynamics]...[MagnetoDynamicsCalcFields_bulk]
+Loading user function library: [MagnetoDynamics]...[MagnetoDynamicsCalcFields_bulk]
+Loading user function library: [MagnetoDynamics]...[MagnetoDynamicsCalcFields]
+WARNING:: AddEquationBasics: Solver 5 may require "Procedure" to operate!
+WARNING:: AddEquationBasics: Solver 5 may require "Procedure" to operate!
+WARNING:: AddEquationBasics: Solver 5 may require "Procedure" to operate!
+WARNING:: AddEquationBasics: Solver 5 may require "Procedure" to operate!
+WARNING:: AddEquationBasics: Solver 5 may require "Procedure" to operate!
+WARNING:: AddEquationBasics: Solver 5 may require "Procedure" to operate!
+WARNING:: AddEquationBasics: Solver 5 may require "Procedure" to operate!
+WARNING:: AddEquationBasics: Solver 5 may require "Procedure" to operate!
+WARNING:: AddEquationBasics: Solver 5 may require "Procedure" to operate!
+WARNING:: AddEquationBasics: Solver 5 may require "Procedure" to operate!
+WARNING:: AddEquationBasics: Solver 5 may require "Procedure" to operate!
+WARNING:: AddEquationBasics: Solver 5 may require "Procedure" to operate!
+WARNING:: AddEquationBasics: Solver 5 may require "Procedure" to operate!
+OptimizeBandwidth: ---------------------------------------------------------
+OptimizeBandwidth: Computing matrix structure for: mgdynpost
+OptimizeBandwidth: Initial bandwidth for mgdynpost: 4608
+OptimizeBandwidth: Optimized bandwidth for mgdynpost: 491
+OptimizeBandwidth: ---------------------------------------------------------
+WARNING:: AddEquationBasics: Solver 5 may require "Procedure" to operate!
+WARNING:: AddEquationBasics: Solver 5 may require "Procedure" to operate!
+WARNING:: AddEquationBasics: Solver 5 may require "Procedure" to operate!
+MAIN: Number of timesteps to be saved: 2
+WARNING:: AddEquationBasics: Solver 5 may require "Procedure" to operate!
+WARNING:: AddEquationBasics: Solver 5 may require "Procedure" to operate!
+WARNING:: AddEquationBasics: Solver 5 may require "Procedure" to operate!
+CoilSolver: --------------------------------------
+CoilSolver: Solving current distribution in a coil
+CoilSolver: --------------------------------------
+CoilSolver: Assuming that all coils are closed!
+CoilSolver: Saving elemental coil index to variable >CoilIndex e<
+CoilSolver: Treating coil in Component: 1
+CoilSolver: Coil volume:  7.5168E-06
+CoilSolver: Coil center: -3.1018E-08 -5.1783E-08  5.7000E-03
+DefineCoilParameters: Fitting the coil by maximizing inertia
+CoilSolver: Assuming coil to be flat i.e. axis has maximum inertia
+CoilSolver: Coil axis normal:  8.9032E-07  3.3187E-07 -1.0000E+00
+CoilSolver: Choosing fixing nodes for set: 1
+CoilSolver: Continuing after parallel reduction: 7107
+CoilSolver: Choosing fixing nodes for set: 2
+CoilSolver: Continuing after parallel reduction: 24717
+CoilSolver: Coil system consists of 1 coils
+CoilSolver: Set1 : 113 +nodes and 111 -nodes
+CoilSolver: Set2 : 105 +nodes and 105 -nodes
+CoilSolver: Computing the dummy potential field
+CutInterfaceConnections: Number of connections cut: 772
+EnforceDirichletConditions: Dirichlet conditions enforced for dofs: 224
+SplittedMatrix: Elapsed REAL time:     0.0009 (s)
+IterSolver: "Linear System GCR Restart" not given, setting it to 200
+CRS_IncompleteLU: ILU(1) (Real), Performing Factorization:
+CRS_IncompleteLU: ILU(1) (Real), NOF nonzeros:     26558
+CRS_IncompleteLU: ILU(1) (Real), filling (%) :       171
+CRS_IncompleteLU: ILU(1) (Real), Factorization time (s):     0.00
+   gcr:     1  0.8920E-01  0.1065E+01
+   gcr:     2  0.4210E-01  0.8408E-01
+   gcr:     3  0.2454E-01  0.3657E-01
+   gcr:     4  0.1686E-01  0.1907E-01
+   gcr:     5  0.1285E-01  0.1168E-01
+   gcr:     6  0.1017E-01  0.8393E-02
+   gcr:     7  0.8109E-02  0.6564E-02
+   gcr:     8  0.6662E-02  0.4943E-02
+   gcr:     9  0.5605E-02  0.3850E-02
+   gcr:    10  0.4928E-02  0.2854E-02
+   gcr:    11  0.4462E-02  0.2236E-02
+   gcr:    12  0.4018E-02  0.2076E-02
+   gcr:    13  0.3546E-02  0.2021E-02
+   gcr:    14  0.3238E-02  0.1546E-02
+   gcr:    15  0.2746E-02  0.1835E-02
+   gcr:    16  0.2422E-02  0.1382E-02
+   gcr:    17  0.2164E-02  0.1165E-02
+   gcr:    18  0.2034E-02  0.7899E-03
+   gcr:    19  0.1907E-02  0.7550E-03
+   gcr:    20  0.1799E-02  0.6778E-03
+   gcr:    21  0.1704E-02  0.6166E-03
+   gcr:    22  0.1602E-02  0.6198E-03
+   gcr:    23  0.1488E-02  0.6357E-03
+   gcr:    24  0.1371E-02  0.6185E-03
+   gcr:    25  0.1310E-02  0.4323E-03
+   gcr:    26  0.1257E-02  0.3946E-03
+   gcr:    27  0.1203E-02  0.3871E-03
+   gcr:    28  0.1146E-02  0.3914E-03
+   gcr:    29  0.1080E-02  0.4103E-03
+   gcr:    30  0.1021E-02  0.3764E-03
+   gcr:    31  0.9632E-03  0.3628E-03
+   gcr:    32  0.9188E-03  0.3090E-03
+   gcr:    33  0.8854E-03  0.2625E-03
+   gcr:    34  0.8541E-03  0.2493E-03
+   gcr:    35  0.8252E-03  0.2357E-03
+   gcr:    36  0.7876E-03  0.2632E-03
+   gcr:    37  0.7609E-03  0.2177E-03
+   gcr:    38  0.7388E-03  0.1945E-03
+   gcr:    39  0.7146E-03  0.2005E-03
+   gcr:    40  0.6834E-03  0.2233E-03
+   gcr:    41  0.6525E-03  0.2174E-03
+   gcr:    42  0.6293E-03  0.1844E-03
+   gcr:    43  0.6120E-03  0.1567E-03
+   gcr:    44  0.5985E-03  0.1366E-03
+   gcr:    45  0.5837E-03  0.1411E-03
+   gcr:    46  0.5670E-03  0.1485E-03
+   gcr:    47  0.5478E-03  0.1563E-03
+   gcr:    48  0.5258E-03  0.1645E-03
+   gcr:    49  0.5075E-03  0.1467E-03
+   gcr:    50  0.4933E-03  0.1277E-03
+   gcr:    51  0.4785E-03  0.1282E-03
+   gcr:    52  0.4593E-03  0.1436E-03
+   gcr:    53  0.4352E-03  0.1569E-03
+   gcr:    54  0.4045E-03  0.1717E-03
+   gcr:    55  0.3646E-03  0.1872E-03
+   gcr:    56  0.3253E-03  0.1761E-03
+   gcr:    57  0.2801E-03  0.1770E-03
+   gcr:    58  0.2332E-03  0.1659E-03
+   gcr:    59  0.1856E-03  0.1509E-03
+   gcr:    60  0.1429E-03  0.1267E-03
+   gcr:    61  0.1022E-03  0.1067E-03
+   gcr:    62  0.6789E-04  0.8172E-04
+   gcr:    63  0.4434E-04  0.5497E-04
+   gcr:    64  0.2899E-04  0.3588E-04
+   gcr:    65  0.2071E-04  0.2169E-04
+   gcr:    66  0.1331E-04  0.1696E-04
+   gcr:    67  0.8294E-05  0.1114E-04
+   gcr:    68  0.4853E-05  0.7192E-05
+   gcr:    69  0.3021E-05  0.4062E-05
+   gcr:    70  0.1924E-05  0.2491E-05
+   gcr:    71  0.1193E-05  0.1614E-05
+   gcr:    72  0.7506E-06  0.9919E-06
+SolveLinearSystem: Calculating nodal loads for: w
+ComputeChange: NS (ITER=1) (NRM,RELC): ( 0.58112982      2.0000000     ) :: coilsolver
+CoilSolver: Discrepancy of start and end coil currents:   1.6809E-04
+CoilSolver: Initial coil current for coil 1:  4.6340E+04
+CoilSolver: Coil potential multiplier:  2.1580E-05
+CutInterfaceConnections: Number of connections cut: 800
+EnforceDirichletConditions: Dirichlet conditions enforced for dofs: 210
+SplittedMatrix: Elapsed REAL time:     0.0009 (s)
+IterSolver: "Linear System GCR Restart" not given, setting it to 200
+CRS_IncompleteLU: ILU(1) (Real), Performing Factorization:
+CRS_IncompleteLU: ILU(1) (Real), NOF nonzeros:     26558
+CRS_IncompleteLU: ILU(1) (Real), filling (%) :       171
+CRS_IncompleteLU: ILU(1) (Real), Factorization time (s):     0.00
+   gcr:     1  0.8335E-01  0.9301E+00
+   gcr:     2  0.4315E-01  0.8253E-01
+   gcr:     3  0.2576E-01  0.4006E-01
+   gcr:     4  0.1771E-01  0.2165E-01
+   gcr:     5  0.1324E-01  0.1361E-01
+   gcr:     6  0.1025E-01  0.9696E-02
+   gcr:     7  0.8339E-02  0.6903E-02
+   gcr:     8  0.7093E-02  0.5074E-02
+   gcr:     9  0.6135E-02  0.4119E-02
+   gcr:    10  0.5214E-02  0.3742E-02
+   gcr:    11  0.4467E-02  0.3113E-02
+   gcr:    12  0.3989E-02  0.2325E-02
+   gcr:    13  0.3705E-02  0.1712E-02
+   gcr:    14  0.3517E-02  0.1348E-02
+   gcr:    15  0.3356E-02  0.1218E-02
+   gcr:    16  0.3230E-02  0.1054E-02
+   gcr:    17  0.3094E-02  0.1071E-02
+   gcr:    18  0.2936E-02  0.1132E-02
+   gcr:    19  0.2692E-02  0.1356E-02
+   gcr:    20  0.2338E-02  0.1543E-02
+   gcr:    21  0.1892E-02  0.1589E-02
+   gcr:    22  0.1502E-02  0.1331E-02
+   gcr:    23  0.1176E-02  0.1082E-02
+   gcr:    24  0.9396E-03  0.8181E-03
+   gcr:    25  0.7791E-03  0.6078E-03
+   gcr:    26  0.6402E-03  0.5139E-03
+   gcr:    27  0.5340E-03  0.4086E-03
+   gcr:    28  0.4570E-03  0.3197E-03
+   gcr:    29  0.3886E-03  0.2783E-03
+   gcr:    30  0.3354E-03  0.2271E-03
+   gcr:    31  0.2938E-03  0.1873E-03
+   gcr:    32  0.2578E-03  0.1630E-03
+   gcr:    33  0.2305E-03  0.1336E-03
+   gcr:    34  0.2047E-03  0.1227E-03
+   gcr:    35  0.1818E-03  0.1088E-03
+   gcr:    36  0.1608E-03  0.9812E-04
+   gcr:    37  0.1409E-03  0.8972E-04
+   gcr:    38  0.1239E-03  0.7767E-04
+   gcr:    39  0.1087E-03  0.6869E-04
+   gcr:    40  0.9315E-04  0.6484E-04
+   gcr:    41  0.7935E-04  0.5646E-04
+   gcr:    42  0.6768E-04  0.4793E-04
+   gcr:    43  0.5691E-04  0.4239E-04
+   gcr:    44  0.4692E-04  0.3726E-04
+   gcr:    45  0.3908E-04  0.3006E-04
+   gcr:    46  0.3323E-04  0.2380E-04
+   gcr:    47  0.2953E-04  0.1764E-04
+   gcr:    48  0.2720E-04  0.1330E-04
+   gcr:    49  0.2566E-04  0.1043E-04
+   gcr:    50  0.2443E-04  0.9086E-05
+   gcr:    51  0.2324E-04  0.8725E-05
+   gcr:    52  0.2227E-04  0.7704E-05
+   gcr:    53  0.2145E-04  0.6912E-05
+   gcr:    54  0.2068E-04  0.6592E-05
+   gcr:    55  0.2001E-04  0.6034E-05
+   gcr:    56  0.1938E-04  0.5764E-05
+   gcr:    57  0.1892E-04  0.4841E-05
+   gcr:    58  0.1855E-04  0.4316E-05
+   gcr:    59  0.1827E-04  0.3727E-05
+   gcr:    60  0.1806E-04  0.3229E-05
+   gcr:    61  0.1778E-04  0.3672E-05
+   gcr:    62  0.1731E-04  0.4669E-05
+   gcr:    63  0.1652E-04  0.6003E-05
+   gcr:    64  0.1544E-04  0.6776E-05
+   gcr:    65  0.1397E-04  0.7618E-05
+   gcr:    66  0.1205E-04  0.8183E-05
+   gcr:    67  0.9640E-05  0.8363E-05
+   gcr:    68  0.7040E-05  0.7621E-05
+   gcr:    69  0.4651E-05  0.6116E-05
+   gcr:    70  0.3072E-05  0.4041E-05
+   gcr:    71  0.2109E-05  0.2584E-05
+   gcr:    72  0.1397E-05  0.1829E-05
+   gcr:    73  0.8665E-06  0.1268E-05
+SolveLinearSystem: Calculating nodal loads for: w
+ComputeChange: NS (ITER=2) (NRM,RELC): ( 0.57916009     0.33952387E-02 ) :: coilsolver
+CoilSolver: Discrepancy of start and end coil currents:   2.8914E-04
+CoilSolver: Initial coil current for coil 1:  4.6286E+04
+CoilSolver: Coil potential multiplier:  2.1605E-05
+CoilSolver: Computing current component: 1
+SplittedMatrix: Elapsed REAL time:     0.0009 (s)
+IterSolver: "Linear System GCR Restart" not given, setting it to 200
+CRS_IncompleteLU: ILU(1) (Real), Performing Factorization:
+CRS_IncompleteLU: ILU(1) (Real), NOF nonzeros:     26558
+CRS_IncompleteLU: ILU(1) (Real), filling (%) :       171
+CRS_IncompleteLU: ILU(1) (Real), Factorization time (s):     0.00
+   gcr:     1  0.1242E+00  0.1042E+01
+   gcr:     2  0.9120E-02  0.1300E+00
+   gcr:     3  0.2118E-02  0.9314E-02
+   gcr:     4  0.4283E-03  0.2178E-02
+   gcr:     5  0.1124E-03  0.4339E-03
+   gcr:     6  0.2230E-04  0.1156E-03
+   gcr:     7  0.5235E-05  0.2275E-04
+   gcr:     8  0.1237E-05  0.5340E-05
+   gcr:     9  0.3026E-06  0.1260E-05
+CoilSolver: Computing current component: 2
+SplittedMatrix: Elapsed REAL time:     0.0009 (s)
+IterSolver: "Linear System GCR Restart" not given, setting it to 200
+CRS_IncompleteLU: ILU(1) (Real), Performing Factorization:
+CRS_IncompleteLU: ILU(1) (Real), NOF nonzeros:     26558
+CRS_IncompleteLU: ILU(1) (Real), filling (%) :       171
+CRS_IncompleteLU: ILU(1) (Real), Factorization time (s):     0.00
+   gcr:     1  0.1818E+00  0.1479E+01
+   gcr:     2  0.1365E-01  0.1911E+00
+   gcr:     3  0.2994E-02  0.1405E-01
+   gcr:     4  0.6314E-03  0.3086E-02
+   gcr:     5  0.1654E-03  0.6426E-03
+   gcr:     6  0.3456E-04  0.1706E-03
+   gcr:     7  0.8244E-05  0.3539E-04
+   gcr:     8  0.1988E-05  0.8436E-05
+   gcr:     9  0.4848E-06  0.2033E-05
+CoilSolver: Computing current component: 3
+SplittedMatrix: Elapsed REAL time:     0.0009 (s)
+IterSolver: "Linear System GCR Restart" not given, setting it to 200
+CRS_IncompleteLU: ILU(1) (Real), Performing Factorization:
+CRS_IncompleteLU: ILU(1) (Real), NOF nonzeros:     26558
+CRS_IncompleteLU: ILU(1) (Real), filling (%) :       171
+CRS_IncompleteLU: ILU(1) (Real), Factorization time (s):     0.00
+   gcr:     1  0.3789E+02  0.2793E+03
+   gcr:     2  0.2956E+01  0.3647E+02
+   gcr:     3  0.6331E+00  0.2788E+01
+   gcr:     4  0.1381E+00  0.5965E+00
+   gcr:     5  0.3622E-01  0.1286E+00
+   gcr:     6  0.7777E-02  0.3416E-01
+   gcr:     7  0.1854E-02  0.7292E-02
+   gcr:     8  0.4444E-03  0.1737E-02
+   gcr:     9  0.1056E-03  0.4167E-03
+   gcr:    10  0.2419E-04  0.9927E-04
+   gcr:    11  0.5417E-05  0.2276E-04
+   gcr:    12  0.1241E-05  0.5091E-05
+   gcr:    13  0.2909E-06  0.1165E-05
+CoilSolver: Minimum current components:  -1.6954E+04 -1.6788E+04 -7.5726E+02
+CoilSolver: Maximum current components:   1.6919E+04  1.6876E+04  7.6750E+02
+CoilSolver: Computing current component: 1
+SplittedMatrix: Elapsed REAL time:     0.0008 (s)
+IterSolver: "Linear System GCR Restart" not given, setting it to 200
+CRS_IncompleteLU: ILU(1) (Real), Performing Factorization:
+CRS_IncompleteLU: ILU(1) (Real), NOF nonzeros:     26558
+CRS_IncompleteLU: ILU(1) (Real), filling (%) :       171
+CRS_IncompleteLU: ILU(1) (Real), Factorization time (s):     0.00
+   gcr:     1  0.1242E+00  0.1042E+01
+   gcr:     2  0.9123E-02  0.1300E+00
+   gcr:     3  0.2120E-02  0.9316E-02
+   gcr:     4  0.4284E-03  0.2180E-02
+   gcr:     5  0.1123E-03  0.4340E-03
+   gcr:     6  0.2227E-04  0.1156E-03
+   gcr:     7  0.5225E-05  0.2273E-04
+   gcr:     8  0.1235E-05  0.5330E-05
+   gcr:     9  0.3020E-06  0.1257E-05
+CoilSolver: Computing current component: 2
+SplittedMatrix: Elapsed REAL time:     0.0007 (s)
+IterSolver: "Linear System GCR Restart" not given, setting it to 200
+CRS_IncompleteLU: ILU(1) (Real), Performing Factorization:
+CRS_IncompleteLU: ILU(1) (Real), NOF nonzeros:     26558
+CRS_IncompleteLU: ILU(1) (Real), filling (%) :       171
+CRS_IncompleteLU: ILU(1) (Real), Factorization time (s):     0.00
+   gcr:     1  0.1818E+00  0.1479E+01
+   gcr:     2  0.1365E-01  0.1911E+00
+   gcr:     3  0.2994E-02  0.1405E-01
+   gcr:     4  0.6314E-03  0.3086E-02
+   gcr:     5  0.1654E-03  0.6426E-03
+   gcr:     6  0.3456E-04  0.1706E-03
+   gcr:     7  0.8244E-05  0.3539E-04
+   gcr:     8  0.1988E-05  0.8436E-05
+   gcr:     9  0.4848E-06  0.2033E-05
+CoilSolver: Computing current component: 3
+SplittedMatrix: Elapsed REAL time:     0.0007 (s)
+IterSolver: "Linear System GCR Restart" not given, setting it to 200
+CRS_IncompleteLU: ILU(1) (Real), Performing Factorization:
+CRS_IncompleteLU: ILU(1) (Real), NOF nonzeros:     26558
+CRS_IncompleteLU: ILU(1) (Real), filling (%) :       171
+CRS_IncompleteLU: ILU(1) (Real), Factorization time (s):     0.00
+   gcr:     1  0.3789E+02  0.2793E+03
+   gcr:     2  0.2956E+01  0.3647E+02
+   gcr:     3  0.6331E+00  0.2788E+01
+   gcr:     4  0.1381E+00  0.5965E+00
+   gcr:     5  0.3622E-01  0.1286E+00
+   gcr:     6  0.7777E-02  0.3416E-01
+   gcr:     7  0.1854E-02  0.7292E-02
+   gcr:     8  0.4444E-03  0.1737E-02
+   gcr:     9  0.1056E-03  0.4167E-03
+   gcr:    10  0.2419E-04  0.9927E-04
+   gcr:    11  0.5417E-05  0.2276E-04
+   gcr:    12  0.1241E-05  0.5091E-05
+   gcr:    13  0.2909E-06  0.1165E-05
+CoilSolver: Minimum current components:  -1.6954E+04 -1.6788E+04 -7.5726E+02
+CoilSolver: Maximum current components:   1.6919E+04  1.6876E+04  7.6750E+02
+CoilSolver: Normalizing current density (as for stranded coil)
+CoilSolver: Finding fixing potential for elemental current density!
+EnforceDirichletConditions: Dirichlet conditions enforced for dofs: 1
+SplittedMatrix: Elapsed REAL time:     0.0007 (s)
+IterSolver: "Linear System GCR Restart" not given, setting it to 200
+CRS_IncompleteLU: ILU(1) (Real), Performing Factorization:
+CRS_IncompleteLU: ILU(1) (Real), NOF nonzeros:     26558
+CRS_IncompleteLU: ILU(1) (Real), filling (%) :       171
+CRS_IncompleteLU: ILU(1) (Real), Factorization time (s):     0.00
+   gcr:     1  0.1216E+00  0.2804E-01
+   gcr:     2  0.3239E-01  0.3312E-02
+   gcr:     3  0.1285E-01  0.8401E-03
+   gcr:     4  0.5513E-02  0.3278E-03
+   gcr:     5  0.3170E-02  0.1274E-03
+   gcr:     6  0.1837E-02  0.7298E-04
+   gcr:     7  0.1181E-02  0.3976E-04
+   gcr:     8  0.8173E-03  0.2409E-04
+   gcr:     9  0.6293E-03  0.1473E-04
+   gcr:    10  0.5140E-03  0.1026E-04
+   gcr:    11  0.4319E-03  0.7873E-05
+   gcr:    12  0.3773E-03  0.5939E-05
+   gcr:    13  0.3403E-03  0.4603E-05
+   gcr:    14  0.3125E-03  0.3805E-05
+   gcr:    15  0.2889E-03  0.3366E-05
+   gcr:    16  0.2682E-03  0.3032E-05
+   gcr:    17  0.2526E-03  0.2549E-05
+   gcr:    18  0.2339E-03  0.2696E-05
+   gcr:    19  0.2132E-03  0.2721E-05
+   gcr:    20  0.1925E-03  0.2586E-05
+   gcr:    21  0.1738E-03  0.2337E-05
+   gcr:    22  0.1596E-03  0.1947E-05
+   gcr:    23  0.1478E-03  0.1701E-05
+   gcr:    24  0.1380E-03  0.1493E-05
+   gcr:    25  0.1279E-03  0.1471E-05
+   gcr:    26  0.1177E-03  0.1409E-05
+   gcr:    27  0.1063E-03  0.1430E-05
+   gcr:    28  0.9414E-04  0.1394E-05
+   gcr:    29  0.8120E-04  0.1346E-05
+   gcr:    30  0.6980E-04  0.1173E-05
+   gcr:    31  0.5914E-04  0.1047E-05
+   gcr:    32  0.5055E-04  0.8675E-06
+   gcr:    33  0.4270E-04  0.7646E-06
+   gcr:    34  0.3513E-04  0.6855E-06
+   gcr:    35  0.2776E-04  0.6082E-06
+   gcr:    36  0.2120E-04  0.5064E-06
+   gcr:    37  0.1590E-04  0.3965E-06
+   gcr:    38  0.1236E-04  0.2824E-06
+   gcr:    39  0.1045E-04  0.1866E-06
+   gcr:    40  0.9489E-05  0.1235E-06
+   gcr:    41  0.9095E-05  0.7651E-07
+   gcr:    42  0.8918E-05  0.5035E-07
+   gcr:    43  0.8866E-05  0.2731E-07
+   gcr:    44  0.8840E-05  0.1928E-07
+   gcr:    45  0.8823E-05  0.1506E-07
+   gcr:    46  0.8811E-05  0.1326E-07
+   gcr:    47  0.8806E-05  0.8619E-08
+   gcr:    48  0.8799E-05  0.9805E-08
+   gcr:    49  0.8797E-05  0.4880E-08
+   gcr:    50  0.8789E-05  0.1052E-07
+   gcr:    51  0.8779E-05  0.1177E-07
+   gcr:    52  0.8744E-05  0.2211E-07
+   gcr:    53  0.8686E-05  0.2850E-07
+   gcr:    54  0.8573E-05  0.3952E-07
+   gcr:    55  0.8425E-05  0.4481E-07
+   gcr:    56  0.8295E-05  0.4158E-07
+   gcr:    57  0.8195E-05  0.3625E-07
+   gcr:    58  0.8121E-05  0.3121E-07
+   gcr:    59  0.8077E-05  0.2376E-07
+   gcr:    60  0.8035E-05  0.2315E-07
+   gcr:    61  0.7984E-05  0.2569E-07
+   gcr:    62  0.7899E-05  0.3277E-07
+   gcr:    63  0.7784E-05  0.3795E-07
+   gcr:    64  0.7612E-05  0.4596E-07
+   gcr:    65  0.7307E-05  0.6024E-07
+   gcr:    66  0.6725E-05  0.8073E-07
+   gcr:    67  0.5923E-05  0.9002E-07
+   gcr:    68  0.5200E-05  0.8014E-07
+   gcr:    69  0.4675E-05  0.6431E-07
+   gcr:    70  0.4246E-05  0.5530E-07
+   gcr:    71  0.3836E-05  0.5138E-07
+   gcr:    72  0.3396E-05  0.5043E-07
+   gcr:    73  0.2919E-05  0.4904E-07
+   gcr:    74  0.2468E-05  0.4401E-07
+   gcr:    75  0.2079E-05  0.3757E-07
+   gcr:    76  0.1719E-05  0.3305E-07
+   gcr:    77  0.1381E-05  0.2892E-07
+   gcr:    78  0.1074E-05  0.2454E-07
+   gcr:    79  0.8373E-06  0.1899E-07
+SolveLinearSystem: Calculating nodal loads for: w
+CoilSolver: Fixing elemental current density to be divergence free!
+CoilSolver: All done
+CoilSolver: --------------------------------------
+MAIN: 
+MAIN: -------------------------------------
+MAIN: Time: 1/1:   1.000E-03
+MAIN: -------------------------------------
+MAIN: 
+CircuitsAndDynamics: Initializing electric circuits for transient simulation
+AddComponentsToBodyList: "Body 5" associated to "Component 1"
+CircuitsAndDynamics: Circuit equations associated with solver index: 3
+CircuitsAndDynamics: Initializing circuit 1 with 5 variables!
+AddComponentEquationsAndCouplings: Using coil resistance for component 1
+GetWPotentialVar: Using gradient of field to define direction: w
+List_ToListMatrix: Matrix format changed from CRS to List
+WhitneyAVSolver: 
+WhitneyAVSolver: -------------------------------------------------
+WhitneyAVSolver: Solving transient AV equations with edge elements
+WhitneyAVSolver: Using Piola Transformed element basis functions
+WARNING:: GetPermittivity: Permittivity not defined in material, defaulting to that of vacuum
+WARNING:: GetPermittivity: Permittivity not defined in material, defaulting to that of vacuum
+WARNING:: GetPermittivity: Permittivity not defined in material, defaulting to that of vacuum
+WARNING:: GetPermittivity: Permittivity not defined in material, defaulting to that of vacuum
+WARNING:: GetPermittivity: Permittivity not defined in material, defaulting to that of vacuum
+WARNING:: GetPermittivity: Permittivity not defined in material, defaulting to that of vacuum
+WARNING:: GetPermittivity: Permittivity not defined in material, defaulting to that of vacuum
+WARNING:: GetPermittivity: Permittivity not defined in material, defaulting to that of vacuum
+WARNING:: GetPermittivity: Permittivity not defined in material, defaulting to that of vacuum
+WARNING:: GetPermittivity: Permittivity not defined in material, defaulting to that of vacuum
+WARNING:: GetPermittivity: Permittivity not defined in material, defaulting to that of vacuum
+WARNING:: GetPermittivity: Permittivity not defined in material, defaulting to that of vacuum
+WARNING:: GetPermittivity: Permittivity not defined in material, defaulting to that of vacuum
+WARNING:: GetPermittivity: Permittivity not defined in material, defaulting to that of vacuum
+WARNING:: GetPermittivity: Permittivity not defined in material, defaulting to that of vacuum
+WARNING:: GetPermittivity: Permittivity not defined in material, defaulting to that of vacuum
+WARNING:: GetPermittivity: Permittivity not defined in material, defaulting to that of vacuum
+WARNING:: GetPermittivity: Permittivity not defined in material, defaulting to that of vacuum
+WARNING:: GetPermittivity: Permittivity not defined in material, defaulting to that of vacuum
+WARNING:: GetPermittivity: Permittivity not defined in material, defaulting to that of vacuum
+MGDynAssembly: Elapsed REAL time:     0.7200 (s)
+EnforceDirichletConditions: Dirichlet conditions enforced for dofs: 9690
+SolveWithLinearRestriction: Collection matrix creation time (CPU,REAL):     0.08    0.08 (s)
+List_ToListMatrix: Matrix format changed from CRS to List
+SplittedMatrix: Elapsed REAL time:     0.0471 (s)
+CRS_IncompleteLU: ILU(0) (Real), Performing Factorization:
+CRS_IncompleteLU: ILU(0) (Real), NOF nonzeros:    740559
+CRS_IncompleteLU: ILU(0) (Real), filling (%) :       100
+CRS_IncompleteLU: ILU(0) (Real), Factorization time (s):     0.02
+   gcr:    30  0.4355E-02  0.2255E-02
+   gcr:    60  0.6326E-04  0.3051E-04
+   gcr:    90  0.6839E-05  0.2732E-05
+   gcr:   120  0.2195E-05  0.1429E-05
+   gcr:   150  0.1933E-06  0.1115E-06
+   gcr:   180  0.9542E-08  0.4224E-08
+ComputeChange: NS (ITER=1) (NRM,RELC): ( 0.64393924E-06  2.0000000     ) :: mgdynamics
+WARNING:: SolveEquations: No routine related to solver!
+WARNING:: SolveEquations: No routine related to solver!
+WARNING:: SolveEquations: No routine related to solver!
+WARNING:: SolveEquations: No routine related to solver!
+WARNING:: SolveEquations: No routine related to solver!
+WARNING:: SolveEquations: No routine related to solver!
+WARNING:: SolveEquations: No routine related to solver!
+WARNING:: SolveEquations: No routine related to solver!
+WARNING:: SolveEquations: No routine related to solver!
+WARNING:: SolveEquations: No routine related to solver!
+WARNING:: SolveEquations: No routine related to solver!
+WARNING:: SolveEquations: No routine related to solver!
+WARNING:: SolveEquations: No routine related to solver!
+WARNING:: SolveEquations: No routine related to solver!
+WARNING:: SolveEquations: No routine related to solver!
+WARNING:: SolveEquations: No routine related to solver!
+WARNING:: SolveEquations: No routine related to solver!
+WARNING:: SolveEquations: No routine related to solver!
+WARNING:: SolveEquations: No routine related to solver!
+WARNING:: SolveEquations: No routine related to solver!
+MagnetoDynamicsCalcFields: ------------------------------
+WARNING:: GetPermittivity: Permittivity not defined in material, defaulting to that of vacuum
+MagnetoDynamicsCalcFields: WARNING:: GetPermittivity: Permittivity not defined in material, defaulting to that of vacuum
+Computing postprocessed fields
+WARNING:: GetPermittivity: Permittivity not defined in material, defaulting to that of vacuum
+WARNING:: GetPermittivity: Permittivity not defined in material, defaulting to that of vacuum
+WARNING:: GetPermittivity: Permittivity not defined in material, defaulting to that of vacuum
+WARNING:: GetPermittivity: Permittivity not defined in material, defaulting to that of vacuum
+WARNING:: GetPermittivity: Permittivity not defined in material, defaulting to that of vacuum
+WARNING:: GetPermittivity: Permittivity not defined in material, defaulting to that of vacuum
+WARNING:: GetPermittivity: Permittivity not defined in material, defaulting to that of vacuum
+WARNING:: GetPermittivity: Permittivity not defined in material, defaulting to that of vacuum
+WARNING:: GetPermittivity: Permittivity not defined in material, defaulting to that of vacuum
+WARNING:: GetPermittivity: Permittivity not defined in material, defaulting to that of vacuum
+WARNING:: GetPermittivity: Permittivity not defined in material, defaulting to that of vacuum
+WARNING:: GetPermittivity: Permittivity not defined in material, defaulting to that of vacuum
+WARNING:: GetPermittivity: Permittivity not defined in material, defaulting to that of vacuum
+WARNING:: GetPermittivity: Permittivity not defined in material, defaulting to that of vacuum
+WARNING:: GetPermittivity: Permittivity not defined in material, defaulting to that of vacuum
+WARNING:: GetPermittivity: Permittivity not defined in material, defaulting to that of vacuum
+MagnetoDynamicsCalcFields: Using potential variable: av
+MagnetoDynamicsCalcFields: Using Piola transformed finite elements
+WARNING:: GetPermittivity: Permittivity not defined in material, defaulting to that of vacuum
+WARNING:: GetPermittivity: Permittivity not defined in material, defaulting to that of vacuum
+MagnetoDynamicsCalcFields: Eddy current power:    9.843058E+01
+MagnetoDynamicsCalcFields: ElectroMagnetic Field Energy:    2.089973E+00
+ReloadInputFile: Reloading input file
+LoadInputFile: Loading input file:
+MAIN: *** Elmer Solver: ALL DONE ***
+ReleaseMeshFaceTables: Releasing number of faces: 46276
+SOLVER TOTAL TIME(CPU,REAL):         6.05        6.20
+ELMER SOLVER FINISHED AT: 2026/05/01 19:34:58
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   PID 363413 RUNNING AT nukwa-08.cnca
+=   EXIT CODE: 9
+=   CLEANING UP REMAINING PROCESSES
+=   YOU CAN IGNORE THE BELOW CLEANUP MESSAGES
+===================================================================================
+YOUR APPLICATION TERMINATED WITH THE EXIT STRING: Killed (signal 9)
+This typically refers to a problem with your application.
+Please see the FAQ page for debugging suggestions

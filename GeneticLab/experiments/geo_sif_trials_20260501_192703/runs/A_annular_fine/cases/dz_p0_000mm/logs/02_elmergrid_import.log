@@ -1,0 +1,101 @@
+
+Starting program Elmergrid, compiled on Nov 28 2025
+Elmergrid reading in-line arguments
+Output will be saved to file mesh.
+
+Elmergrid loading data:
+-----------------------
+Format chosen using the first line: $MeshFormat
+Gmsh input file format is type   2.2 in ASCII.
+Loading mesh in Gmsh format 2.0 from file case.msh
+Allocating for 857211 knots and 5367557 elements.
+Moving bulk elements to boundary elements
+Leading bulk elementtype is 504
+Trailing bulk elementtype is 101
+Checking that different dimensions have unique boundary tags!
+Tag interval for boundaries: [1 48]
+We have an overlap, applying offsets!
+Replacing tag in 1-dim 4 -> 39
+Replacing tag in 1-dim 5 -> 40
+Replacing tag in 1-dim 6 -> 41
+Replacing tag in 1-dim 7 -> 42
+Replacing tag in 1-dim 8 -> 43
+Replacing tag in 1-dim 9 -> 44
+Replacing tag in 1-dim 13 -> 45
+Replacing tag in 1-dim 14 -> 46
+Replacing tag in 1-dim 15 -> 47
+Replacing tag in 1-dim 16 -> 48
+Replacing tag in 1-dim 17 -> 49
+Replacing tag in 1-dim 18 -> 50
+Replacing tag in 1-dim 22 -> 51
+Replacing tag in 1-dim 23 -> 52
+Replacing tag in 1-dim 24 -> 53
+Replacing tag in 1-dim 25 -> 54
+Replacing tag in 1-dim 26 -> 55
+Replacing tag in 1-dim 27 -> 56
+Replacing tag in 1-dim 31 -> 57
+Replacing tag in 1-dim 32 -> 58
+Replacing tag in 1-dim 33 -> 59
+Replacing tag in 1-dim 34 -> 60
+Replacing tag in 1-dim 35 -> 61
+Replacing tag in 1-dim 36 -> 62
+Replacing tag in 1-dim 40 -> 63
+Replacing tag in 1-dim 41 -> 64
+Replacing tag in 1-dim 42 -> 65
+Replacing tag in 1-dim 43 -> 66
+Replacing tag in 1-dim 44 -> 67
+Replacing tag in 1-dim 45 -> 68
+Replacing tag in 1-dim 46 -> 69
+Replacing tag in 1-dim 47 -> 70
+Replacing tag in 1-dim 48 -> 71
+Replacing tag in 0-dim 3 -> 72
+Replacing tag in 0-dim 4 -> 73
+Replacing tag in 0-dim 5 -> 74
+Replacing tag in 0-dim 6 -> 75
+Replacing tag in 0-dim 9 -> 76
+Replacing tag in 0-dim 10 -> 77
+Replacing tag in 0-dim 11 -> 78
+Replacing tag in 0-dim 12 -> 79
+Replacing tag in 0-dim 15 -> 80
+Replacing tag in 0-dim 16 -> 81
+Replacing tag in 0-dim 17 -> 82
+Replacing tag in 0-dim 18 -> 83
+Replacing tag in 0-dim 21 -> 84
+Replacing tag in 0-dim 22 -> 85
+Replacing tag in 0-dim 23 -> 86
+Replacing tag in 0-dim 24 -> 87
+Replacing tag in 0-dim 27 -> 88
+Replacing tag in 0-dim 28 -> 89
+Replacing tag in 0-dim 29 -> 90
+Replacing tag in 0-dim 30 -> 91
+Replacing tag in 0-dim 31 -> 92
+Replacing tag in 0-dim 32 -> 93
+Renumbered tags for boundary elements!
+There are 231072 (out of 5367557) lower dimensional elements.
+Node 41541 belongs to maximum of 49 elements
+Found 203064 side elements that have two parents.
+Found correctly 231072 side elements.
+Parent elements were reordered up to index 5136485.
+Moved 5136485 elements (out of 5367557) to new positions
+Successfully read the mesh from the Gmsh input file.
+Using physical numbering of entities
+
+Elmergrid creating and manipulating meshes:
+-------------------------------------------
+Bounding box of all nodes in mesh:
+X:[-0.05,0.05] Y:[-0.0499999,0.0499996] Z:[-0.03,0.03]
+Calculate Mesh Pieces in mesh:
+There is a single piece in the mesh, so the mesh is conforming.
+
+Elmergrid saving data with method 2:
+-------------------------------------
+Saving mesh in ElmerSolver format to directory mesh.
+Saving 857211 coordinates to mesh.nodes.
+Saving 5136485 element topologies to mesh.elements.
+Saving boundary elements to mesh.boundary.
+Saving header info to mesh.header.
+Saving names info to mesh.names.
+Saving entities info to entities.sif.
+
+Thank you for using Elmergrid!
+Send bug reports and feature wishes to elmeradm@csc.fi

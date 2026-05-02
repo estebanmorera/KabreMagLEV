@@ -1,0 +1,2 @@
+individual_id,generation,algorithm,rb1_mm,rb2_mm,hb_mm,gap_pc_mm,I_eval_A,Ni,geometry_variant,mesh_profile,r_core_mm
+A_annular_coarse,0,geo_sif_trial,12.7,18.7,12.7,4.0,3.0,700,annular_rotor,coarse_debug,5.2

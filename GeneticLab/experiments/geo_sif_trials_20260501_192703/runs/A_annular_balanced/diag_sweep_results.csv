@@ -1,0 +1,4 @@
+tag,axis,dx_m,dy_m,dz_m,W_J,msh_nodes,msh_elements,nprocs,launcher,partition_method,bind,ram_gb,elapsed_raw,case_dir,status,note,gcr_warning,bad_termination,true_residual,iterated_residual,max_gcr_iter,suspect,suspect_reason
+dz_m1_000mm,dz,0.0,0.0,-0.001,2.093626,330792,2096736,20,mpirun,metiskway,core,,,/work/jmorera/Genes/GeneticLab/experiments/geo_sif_trials_20260501_192703/runs/A_annular_balanced/cases/dz_m1_000mm,OK,,0,,,,240,0,
+dz_p0_000mm,dz,0.0,0.0,0.0,2.100994,331873,2102972,20,mpirun,metiskway,core,,,/work/jmorera/Genes/GeneticLab/experiments/geo_sif_trials_20260501_192703/runs/A_annular_balanced/cases/dz_p0_000mm,OK,,0,,,,270,0,
+dz_p1_000mm,dz,0.0,0.0,0.001,2.08326,331495,2101053,20,mpirun,metiskway,core,,,/work/jmorera/Genes/GeneticLab/experiments/geo_sif_trials_20260501_192703/runs/A_annular_balanced/cases/dz_p1_000mm,OK,,0,,,,270,0,
