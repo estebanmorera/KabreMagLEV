@@ -56,6 +56,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--partition-method", default="metiskway")
     parser.add_argument("--launcher", default="srun")
     parser.add_argument("--bind", default="core", help="Deja vacio para no pasar --bind al runner.")
+    parser.add_argument("--gmsh-threads", type=int, default=1)
+    parser.add_argument("--gmsh-launcher", default="serial")
+    parser.add_argument("--gmsh-mpi-procs", type=int, default=1)
+    parser.add_argument("--gmsh-extra-args", default="")
     parser.add_argument("--auto-rescue", action="store_true")
     parser.add_argument("--rescue-frac", type=float, default=0.5)
     parser.add_argument("--python-exe", default="python3")
@@ -173,7 +177,15 @@ def build_runner_command(args: argparse.Namespace, row: dict[str, str], run_dir:
         args.partition_method,
         "--launcher",
         args.launcher,
+        "--gmsh-threads",
+        str(args.gmsh_threads),
+        "--gmsh-launcher",
+        args.gmsh_launcher,
+        "--gmsh-mpi-procs",
+        str(args.gmsh_mpi_procs),
     ]
+    if args.gmsh_extra_args.strip():
+        cmd.extend(["--gmsh-extra-args", args.gmsh_extra_args.strip()])
     if args.bind.strip():
         cmd.extend(["--bind", args.bind.strip()])
     if args.auto_rescue:
@@ -212,6 +224,10 @@ def main() -> int:
         "nprocs": args.nprocs or int(os.getenv("SLURM_NTASKS", "0") or "0"),
         "launcher": args.launcher,
         "bind": args.bind,
+        "gmsh_threads": args.gmsh_threads,
+        "gmsh_launcher": args.gmsh_launcher,
+        "gmsh_mpi_procs": args.gmsh_mpi_procs,
+        "gmsh_extra_args": args.gmsh_extra_args,
         "auto_rescue": args.auto_rescue,
         "hostname": socket.gethostname(),
         "slurm_job_id": os.getenv("SLURM_JOB_ID", ""),
@@ -236,7 +252,8 @@ def main() -> int:
     #   the outer Slurm step has only one task available.
     for key in ("SLURM_MEM_PER_CPU", "SLURM_MEM_PER_GPU", "SLURM_MEM_PER_NODE"):
         env.pop(key, None)
-    if args.launcher.strip().lower() in {"mpirun", "mpiexec", "mpiexec.hydra"}:
+    plain_mpi_launchers = {args.launcher.strip().lower(), args.gmsh_launcher.strip().lower()}
+    if plain_mpi_launchers & {"mpirun", "mpiexec", "mpiexec.hydra"}:
         for key in list(env.keys()):
             if key.startswith("SLURM_") or key.startswith("PMI_") or key.startswith("PMIX_"):
                 env.pop(key, None)

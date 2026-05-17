@@ -8,5 +8,6 @@ Notebook para revisar geometria, malla, IDs de cuerpos/fronteras y consistencia 
   - Mantiene capas externas de malla fijas y concentra cambios de refinamiento en rotor interno y bobina.
   - Corre preflight Gmsh/ElmerGrid para ajustar `ExternalBC` por escenario y exporta reportes comparables en `reports/`.
   - El SIF candidato limpia el solver inactivo 5 y mantiene `Use Piola Transform = Logical True`; tambien incluye una prueba opcional con Piola apagado para sensibilidad.
+  - Permite probar mallado paralelo de Gmsh en Kabre con `GMSH_THREADS` (`gmsh -nt`) y, de forma experimental, `GMSH_MPI_PROCS`; exporta `mesh_timing_summary.csv`.
   - El notebook conserva `RUN_LABEL` al re-ejecutar la configuracion para no mezclar templates, manifests, cases y runs entre carpetas distintas.
 - `requirements_geo_sif_trials.txt`: dependencias Python sugeridas para el kernel del notebook.

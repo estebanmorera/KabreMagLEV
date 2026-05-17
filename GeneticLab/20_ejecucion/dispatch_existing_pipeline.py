@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import shlex
 import shutil
 import subprocess
 from datetime import datetime
@@ -13,7 +14,6 @@ DEFAULT_MODULE_PREAMBLE = """
 module purge
 module load elmerfem/9.0
 module load gmsh/4.15.0
-module load mpich/4.1.1
 module load lapack/3.12.1
 export LD_LIBRARY_PATH=/work/jmorera/compat_gfortran3:$LD_LIBRARY_PATH
 export OMP_NUM_THREADS=1
@@ -43,6 +43,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--inner-launcher", default="mpirun")
     parser.add_argument("--bind", default="")
     parser.add_argument("--partition-method", default="metiskway")
+    parser.add_argument("--gmsh-threads", type=int, default=1)
+    parser.add_argument("--gmsh-launcher", default="serial")
+    parser.add_argument("--gmsh-mpi-procs", type=int, default=1)
+    parser.add_argument("--gmsh-extra-args", default="")
     parser.add_argument("--python-exe-remote", default="python3")
     parser.add_argument("--max-individuals", type=int, default=0)
     parser.add_argument("--timeout-sec", type=int, default=0)
@@ -198,6 +202,10 @@ def main() -> None:
         "execute": bool(args.execute),
         "population": str(pop_csv),
         "optimizer_evaluation": str(optimizer_eval_csv),
+        "gmsh_threads": args.gmsh_threads,
+        "gmsh_launcher": args.gmsh_launcher,
+        "gmsh_mpi_procs": args.gmsh_mpi_procs,
+        "gmsh_extra_args": args.gmsh_extra_args,
     }
     (experiment_root / "experiment_config.json").write_text(
         json.dumps(meta, indent=2), encoding="utf-8"
@@ -215,6 +223,11 @@ python3 {write_cases_py} \
     print(run_shell(write_cases_cmd, cwd=project, use_modules=True, execute=args.execute))
 
     bind_arg = f"--bind {args.bind}" if args.bind.strip() else ""
+    gmsh_extra_arg = (
+        f"--gmsh-extra-args {shlex.quote(args.gmsh_extra_args)}"
+        if args.gmsh_extra_args.strip()
+        else ""
+    )
     skip_completed_arg = "--skip-completed" if args.skip_completed else ""
     skip_first_arg = "--skip-first-node" if args.skip_first_node else ""
     fail_fast_arg = "--fail-fast" if args.fail_fast else ""
@@ -245,6 +258,10 @@ python3 {alloc_runner_py} \
   --inner-launcher {args.inner_launcher} \
   {bind_arg} \
   --partition-method {args.partition_method} \
+  --gmsh-threads {args.gmsh_threads} \
+  --gmsh-launcher {args.gmsh_launcher} \
+  --gmsh-mpi-procs {args.gmsh_mpi_procs} \
+  {gmsh_extra_arg} \
   --python-exe-remote {args.python_exe_remote} \
   --max-nodes {args.max_nodes} \
   {skip_first_arg} \

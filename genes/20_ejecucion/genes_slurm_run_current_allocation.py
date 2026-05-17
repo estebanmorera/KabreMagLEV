@@ -54,6 +54,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--partition-method", default="metiskway")
     parser.add_argument("--inner-launcher", default="mpirun")
     parser.add_argument("--bind", default="")
+    parser.add_argument("--gmsh-threads", type=int, default=1)
+    parser.add_argument("--gmsh-launcher", default="serial")
+    parser.add_argument("--gmsh-mpi-procs", type=int, default=1)
+    parser.add_argument("--gmsh-extra-args", default="")
     parser.add_argument("--auto-rescue", action="store_true")
     parser.add_argument("--rescue-frac", type=float, default=0.5)
     parser.add_argument("--python-exe-remote", default="python3")
@@ -246,6 +250,12 @@ def build_helper_parts(args: argparse.Namespace, individual_id: str, manifest: P
         args.inner_launcher,
         "--partition-method",
         args.partition_method,
+        "--gmsh-threads",
+        str(args.gmsh_threads),
+        "--gmsh-launcher",
+        args.gmsh_launcher,
+        "--gmsh-mpi-procs",
+        str(args.gmsh_mpi_procs),
         "--axis",
         args.axis,
         "--start-mm",
@@ -265,6 +275,8 @@ def build_helper_parts(args: argparse.Namespace, individual_id: str, manifest: P
     ]
     if args.bind.strip():
         parts.extend(["--bind", args.bind.strip()])
+    if args.gmsh_extra_args.strip():
+        parts.extend(["--gmsh-extra-args", args.gmsh_extra_args.strip()])
     if args.auto_rescue:
         parts.extend(["--auto-rescue", "--rescue-frac", str(args.rescue_frac)])
     if args.timeout_sec and args.timeout_sec > 0:
@@ -427,6 +439,10 @@ def main() -> int:
     allocation_info["expected_rows"] = args.expected_rows
     allocation_info["nprocs_per_simulation"] = args.nprocs
     allocation_info["inner_launcher"] = args.inner_launcher
+    allocation_info["gmsh_threads"] = args.gmsh_threads
+    allocation_info["gmsh_launcher"] = args.gmsh_launcher
+    allocation_info["gmsh_mpi_procs"] = args.gmsh_mpi_procs
+    allocation_info["gmsh_extra_args"] = args.gmsh_extra_args
 
     if allocation_info_out:
         write_json(allocation_info_out, allocation_info)

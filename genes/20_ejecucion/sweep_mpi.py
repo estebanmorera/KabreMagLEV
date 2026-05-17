@@ -2,6 +2,7 @@ import argparse
 import math
 import os
 import re
+import shlex
 import shutil
 import subprocess
 from pathlib import Path
@@ -146,6 +147,8 @@ def safe_tag(axis: str, mm: float, suffix: str = "") -> str:
 
 
 def choose_launcher(user_choice: str) -> str:
+    if user_choice == "serial":
+        return "serial"
     if user_choice in ("mpirun", "mpiexec", "srun"):
         return user_choice
     if shutil.which("mpirun"):
@@ -157,53 +160,104 @@ def choose_launcher(user_choice: str) -> str:
     raise RuntimeError("No encontré 'mpirun', 'mpiexec' ni 'srun' en PATH.")
 
 
+def mpi_prefix(launcher: str, nprocs: int, bind: str, target: str, omp_threads: Optional[str] = None) -> list:
+    if nprocs <= 1 or launcher == "serial":
+        return []
+
+    path_env = os.environ.get("PATH", "")
+    ld_library_path = os.environ.get("LD_LIBRARY_PATH", "")
+    omp_threads = omp_threads or os.environ.get("OMP_NUM_THREADS", "1")
+
+    if launcher == "mpirun":
+        prefix = [
+            "mpirun",
+            "-np",
+            str(nprocs),
+            "-genv",
+            "PATH",
+            path_env,
+            "-genv",
+            "LD_LIBRARY_PATH",
+            ld_library_path,
+            "-genv",
+            "OMP_NUM_THREADS",
+            omp_threads,
+        ]
+        if bind == "core":
+            prefix += ["--bind-to", "core"]
+        elif bind == "socket":
+            prefix += ["--bind-to", "socket"]
+        elif bind == "hwthread":
+            prefix += ["--bind-to", "hwthread"]
+        return prefix
+
+    if launcher == "mpiexec":
+        return [
+            "mpiexec",
+            "-n",
+            str(nprocs),
+            "-genv",
+            "PATH",
+            path_env,
+            "-genv",
+            "LD_LIBRARY_PATH",
+            ld_library_path,
+            "-genv",
+            "OMP_NUM_THREADS",
+            omp_threads,
+        ]
+
+    if launcher == "srun":
+        prefix = ["srun", "--export=ALL", "-n", str(nprocs)]
+        if bind == "core":
+            prefix += ["--cpu-bind=cores"]
+        elif bind == "socket":
+            prefix += ["--cpu-bind=sockets"]
+        elif bind == "hwthread":
+            prefix += ["--cpu-bind=threads"]
+        return prefix
+
+    raise RuntimeError(f"Lanzador MPI no soportado para {target}: {launcher}")
+
+
+def build_gmsh_cmd(
+    launcher: str,
+    mpi_procs: int,
+    threads: int,
+    geo_name: str,
+    msh_name: str,
+    bind: str,
+    extra_args: list[str],
+    use_time_v: bool,
+) -> list:
+    gmsh = shutil.which("gmsh") or "gmsh"
+    base = [gmsh, geo_name, "-3", "-format", "msh2", "-save_all", "-o", msh_name]
+    if threads > 0:
+        base += ["-nt", str(threads)]
+    if extra_args:
+        base += list(extra_args)
+
+    cmd = mpi_prefix(
+        launcher=launcher,
+        nprocs=mpi_procs,
+        bind=bind,
+        target="gmsh",
+        omp_threads=str(threads) if threads > 0 else None,
+    ) + base
+    if use_time_v and shutil.which("/usr/bin/time"):
+        return ["/usr/bin/time", "-v"] + cmd
+    return cmd
+
+
 def build_solver_cmd(launcher: str, nprocs: int, sif_name: str, bind: str, use_time_v: bool) -> list:
     elmer_serial = shutil.which("ElmerSolver") or "ElmerSolver"
     elmer_mpi = shutil.which("ElmerSolver_mpi") or "ElmerSolver_mpi"
 
-    path_env = os.environ.get("PATH", "")
-    ld_library_path = os.environ.get("LD_LIBRARY_PATH", "")
-
     if nprocs <= 1:
         base = [elmer_serial, sif_name]
     else:
-        if launcher == "mpirun":
-            base = [
-                "mpirun",
-                "-np", str(nprocs),
-                "-genv", "PATH", path_env,
-                "-genv", "LD_LIBRARY_PATH", ld_library_path,
-                "-genv", "OMP_NUM_THREADS", os.environ.get("OMP_NUM_THREADS", "1"),
-            ]
-            if bind == "core":
-                base += ["--bind-to", "core"]
-            elif bind == "socket":
-                base += ["--bind-to", "socket"]
-            elif bind == "hwthread":
-                base += ["--bind-to", "hwthread"]
-            base += [elmer_mpi, sif_name]
-
-        elif launcher == "mpiexec":
-            base = [
-                "mpiexec",
-                "-n", str(nprocs),
-                "-genv", "PATH", path_env,
-                "-genv", "LD_LIBRARY_PATH", ld_library_path,
-                "-genv", "OMP_NUM_THREADS", os.environ.get("OMP_NUM_THREADS", "1"),
-                elmer_mpi, sif_name,
-            ]
-
-        elif launcher == "srun":
-            base = ["srun", "--export=ALL", "-n", str(nprocs)]
-            if bind == "core":
-                base += ["--cpu-bind=cores"]
-            elif bind == "socket":
-                base += ["--cpu-bind=sockets"]
-            elif bind == "hwthread":
-                base += ["--cpu-bind=threads"]
-            base += [elmer_mpi, sif_name]
-        else:
-            raise RuntimeError(f"Launcher no soportado: {launcher}")
+        base = mpi_prefix(launcher=launcher, nprocs=nprocs, bind=bind, target="ElmerSolver")
+        base += [elmer_mpi, sif_name]
 
     if use_time_v and shutil.which("/usr/bin/time"):
         return ["/usr/bin/time", "-v"] + base
@@ -240,6 +294,10 @@ def run_case(
     launcher: str,
     bind: str,
     use_time_v: bool,
+    gmsh_threads: int,
+    gmsh_launcher: str,
+    gmsh_mpi_procs: int,
+    gmsh_extra_args: list[str],
 ) -> dict:
     case_dir.mkdir(parents=True, exist_ok=True)
     logs_dir = case_dir / "logs"
@@ -259,11 +317,32 @@ def run_case(
     msh_name = "case.msh"
     mesh_dir_name = "mesh"
 
-    run_and_log(
-        ["gmsh", geo_case.name, "-3", "-format", "msh2", "-save_all", "-o", msh_name],
+    gmsh_cmd = build_gmsh_cmd(
+        launcher=gmsh_launcher,
+        mpi_procs=gmsh_mpi_procs,
+        threads=gmsh_threads,
+        geo_name=geo_case.name,
+        msh_name=msh_name,
+        bind=bind,
+        extra_args=gmsh_extra_args,
+        use_time_v=use_time_v,
+    )
+    gmsh_env = os.environ.copy()
+    if gmsh_threads > 0:
+        gmsh_env["OMP_NUM_THREADS"] = str(gmsh_threads)
+    gmsh_rc, gmsh_log_text = run_and_log_no_raise(
+        gmsh_cmd,
         cwd=case_dir,
         log_path=logs_dir / "01_gmsh.log",
+        env=gmsh_env,
     )
+    if gmsh_rc != 0:
+        tail = gmsh_log_text.splitlines()[-80:]
+        raise RuntimeError(
+            f"Fallo comando: {' '.join(map(str, gmsh_cmd))}\n"
+            f"Ultimas lineas de {logs_dir / '01_gmsh.log'}:\n" + "\n".join(tail)
+        )
+    gmsh_elapsed_raw = parse_elapsed_raw(gmsh_log_text)
 
     run_and_log(
         ["ElmerGrid", "14", "2", msh_name, "-out", mesh_dir_name],
@@ -353,6 +432,11 @@ def run_case(
         "launcher": launcher if nprocs > 1 else "serial",
         "partition_method": partition_method if nprocs > 1 else "none",
         "bind": bind if nprocs > 1 else "none",
+        "gmsh_threads": gmsh_threads,
+        "gmsh_mpi_procs": gmsh_mpi_procs,
+        "gmsh_launcher": gmsh_launcher if gmsh_mpi_procs > 1 else "serial",
+        "gmsh_elapsed_raw": gmsh_elapsed_raw,
+        "gmsh_command": " ".join(shlex.quote(str(part)) for part in gmsh_cmd),
         **diag,
     }
 
@@ -396,6 +480,11 @@ def to_row(res: dict, tag: str, axis: str, dx_m: float, dy_m: float, dz_m: float
         "launcher": res.get("launcher"),
         "partition_method": res.get("partition_method"),
         "bind": res.get("bind"),
+        "gmsh_threads": res.get("gmsh_threads"),
+        "gmsh_mpi_procs": res.get("gmsh_mpi_procs"),
+        "gmsh_launcher": res.get("gmsh_launcher"),
+        "gmsh_elapsed_raw": res.get("gmsh_elapsed_raw"),
+        "gmsh_command": res.get("gmsh_command"),
         "ram_gb": res.get("ram_gb"),
         "elapsed_raw": res.get("elapsed_raw"),
         "case_dir": res.get("case_dir"),
@@ -448,6 +537,29 @@ def main() -> None:
         help="Afinidad CPU del launcher",
     )
     ap.add_argument("--use-time-v", action="store_true", help="Anteponer /usr/bin/time -v al solver")
+    ap.add_argument(
+        "--gmsh-threads",
+        type=int,
+        default=1,
+        help="Threads OpenMP para Gmsh (-nt). Ruta recomendada para acelerar HXT.",
+    )
+    ap.add_argument(
+        "--gmsh-launcher",
+        choices=["serial", "auto", "mpirun", "mpiexec", "srun"],
+        default="serial",
+        help="Launcher MPI experimental para Gmsh.",
+    )
+    ap.add_argument(
+        "--gmsh-mpi-procs",
+        type=int,
+        default=1,
+        help="Ranks MPI para Gmsh. Experimental: Gmsh upstream indica que MPI no se usa para meshing.",
+    )
+    ap.add_argument(
+        "--gmsh-extra-args",
+        default="",
+        help="Argumentos extra para Gmsh, separados como en shell. Ejemplo: '--cpu -v 4'.",
+    )
     ap.add_argument("--skip-existing", action="store_true", help="Si el caso ya existe en CSV, se salta")
     ap.add_argument("--auto-rescue", action="store_true", help="Rescatar puntos FAIL o SUSPECT")
     ap.add_argument("--rescue-frac", type=float, default=0.5, help="Fracción del step para puntos de rescate")
@@ -472,8 +584,14 @@ def main() -> None:
         raise RuntimeError("--end-mm debe ser >= --start-mm")
     if args.nprocs < 1:
         raise RuntimeError("--nprocs debe ser >= 1")
+    if args.gmsh_threads < 0:
+        raise RuntimeError("--gmsh-threads debe ser >= 0")
+    if args.gmsh_mpi_procs < 1:
+        raise RuntimeError("--gmsh-mpi-procs debe ser >= 1")
 
     launcher = choose_launcher(args.launcher) if args.nprocs > 1 else "serial"
+    gmsh_launcher = choose_launcher(args.gmsh_launcher) if args.gmsh_mpi_procs > 1 else "serial"
+    gmsh_extra_args = shlex.split(args.gmsh_extra_args) if args.gmsh_extra_args.strip() else []
     geo_text_orig = geo_src.read_text(encoding="utf-8", errors="ignore")
 
     csv_path = outdir / "diag_sweep_results.csv"
@@ -520,6 +638,10 @@ def main() -> None:
                 launcher=launcher,
                 bind=args.bind,
                 use_time_v=args.use_time_v,
+                gmsh_threads=args.gmsh_threads,
+                gmsh_launcher=gmsh_launcher,
+                gmsh_mpi_procs=args.gmsh_mpi_procs,
+                gmsh_extra_args=gmsh_extra_args,
             )
         except Exception as e:
             res = {
@@ -535,6 +657,11 @@ def main() -> None:
                 "launcher": launcher,
                 "partition_method": args.partition_method if args.nprocs > 1 else "none",
                 "bind": args.bind if args.nprocs > 1 else "none",
+                "gmsh_threads": args.gmsh_threads,
+                "gmsh_mpi_procs": args.gmsh_mpi_procs,
+                "gmsh_launcher": gmsh_launcher if args.gmsh_mpi_procs > 1 else "serial",
+                "gmsh_elapsed_raw": None,
+                "gmsh_command": "",
                 "gcr_warning": 0,
                 "bad_termination": 0,
                 "true_residual": None,
@@ -629,6 +756,10 @@ def main() -> None:
                         launcher=launcher,
                         bind=args.bind,
                         use_time_v=args.use_time_v,
+                        gmsh_threads=args.gmsh_threads,
+                        gmsh_launcher=gmsh_launcher,
+                        gmsh_mpi_procs=args.gmsh_mpi_procs,
+                        gmsh_extra_args=gmsh_extra_args,
                     )
                     if r2["status"] == "OK":
                         r2["status"] = "RESCUE_OK"
@@ -651,6 +782,11 @@ def main() -> None:
                         "launcher": launcher,
                         "partition_method": args.partition_method if args.nprocs > 1 else "none",
                         "bind": args.bind if args.nprocs > 1 else "none",
+                        "gmsh_threads": args.gmsh_threads,
+                        "gmsh_mpi_procs": args.gmsh_mpi_procs,
+                        "gmsh_launcher": gmsh_launcher if args.gmsh_mpi_procs > 1 else "serial",
+                        "gmsh_elapsed_raw": None,
+                        "gmsh_command": "",
                         "gcr_warning": 0,
                         "bad_termination": 0,
                         "true_residual": None,
